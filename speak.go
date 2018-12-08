@@ -17,10 +17,11 @@ var response_body string
 var error_message string = "<h4>Oops, something went wrong</h4><p>Please send the exact URL and a description what you were doing to karlyan.kamerer (at) gmail.com"
 var env_var map[string]string
 var query_var map[string]string
+var post_path = "/home/nurgling/speak/"
 
 func buildPage() string {
 	var response_body string
-	content,err := ioutil.ReadFile("posts.txt")
+	content,err := ioutil.ReadFile(post_path + "posts.txt")
 	if err != nil {
 		response_body = error_message
 		return response_body
@@ -30,7 +31,7 @@ func buildPage() string {
 }
 
 func updatePage(speak string) {
-        content,err := ioutil.ReadFile("posts.txt")
+        content,err := ioutil.ReadFile(post_path + "posts.txt")
         if err != nil {
                 response_body += "<h2>go fuck yourself</h2>"
         } else {
