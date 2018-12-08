@@ -33,11 +33,11 @@ func buildPage() string {
 func updatePage(speak string) {
         content,err := ioutil.ReadFile(post_path + "posts.txt")
         if err != nil {
-                response_body += "<h2>go fuck yourself</h2>"
+                response_body += "<h2>go fuck yourself error 1</h2>"
         } else {
                 err = ioutil.WriteFile("posts.txt", []byte(speak + "\n" + string(content)), 0644)
 		if err != nil {
-			response_body += "<h2>go fuck yourself</h2>"
+			response_body += "<h2>go fuck yourself error 2</h2>"
 		}
         }
 
