@@ -67,7 +67,6 @@ func main() {
 	response_body += "<input type =\"text\" name=\"p\">"
 	response_body += "<input type=\"submit\" value=\"Speak\">"
 	response_body += "</form>"
-	response_body += buildPage()
 	if env_var["REQUEST_METHOD"] == "POST" {
 		if len(os.Args) == 2 && os.Args[1] != "" {
 			args,_ = url.QueryUnescape(os.Args[1])
@@ -90,6 +89,7 @@ func main() {
 			}
 		}
 	}
+	response_body += buildPage()
 	response_body += "<p><a href=/faq.html>FAQ</a> For bugs, ideas, suggestion and other spam: karlyan.kamerer (at) gmail.com </p>\n"
 	response_body += "</body>\n</html>\n"
 
